@@ -1,0 +1,9 @@
+<ion-list *ngFor="let data of toDoData">
+  <ion-item>
+    <ion-checkbox slot="start"></ion-checkbox>
+    <ion-label>
+      <p>Task #{{data.id}}</p>
+      <h2>{{data.title}}</h2>
+    </ion-label>
+  </ion-item>
+</ion-list>

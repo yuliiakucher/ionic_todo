@@ -1,0 +1,28 @@
+<br>
+<ion-button routerLink="maker" color="light" shape="round" expand="block">Create new Task</ion-button>
+
+<h3>Your tasks:</h3>
+
+<ion-content>
+    <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="bubbles"></ion-refresher-content>
+    </ion-refresher>
+    <ion-list *ngFor="let data of toDoData">
+        <ion-item>
+            <ion-checkbox slot="start" (click)="Done(data.id)"></ion-checkbox>
+            <ion-label>
+                <p>Task #{{data.id}}</p>
+                <h2>{{data.title}}</h2>
+            </ion-label>
+            <ion-button color="medium">Details</ion-button>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+
+
+
+
+
+
+
