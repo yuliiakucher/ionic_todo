@@ -1,31 +1,30 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Task manager
+      Tasks for today
     </ion-title>
     <ion-icon name="document-text-outline" size="large" slot="start"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <section>
-  <ion-card>
+  <ion-card *ngFor="let todayTask of todayTasks">
     <ion-item>
       <ion-icon name="pencil-outline" slot="start"></ion-icon>
       <ion-label>
-        <p>Task #{{task.id}}</p>
-        {{task.title}}
+        <p>Task #{{todayTask.id}}</p>
+        {{todayTask.title}}
       </ion-label>
       <ion-label color='dark'>
-        <p>Due to {{task.date | date: 'shortDate'}}</p>
-        Priority: {{task.type}}
+        <p>Due to {{todayTask.date | date: 'shortDate'}}</p>
+        Priority: {{todayTask.type}}
       </ion-label>
     </ion-item>
 
     <ion-card-content>
-      {{task.body}}
+        {{todayTask.body}}
     </ion-card-content>
   </ion-card>
   <ion-button slot="center" expand="block" color="success" fill="outline" (click)="back()">Ok</ion-button>
 </section>
-
-

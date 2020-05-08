@@ -11,6 +11,7 @@ import {TodoComponent} from "../todo/todo.component";
 import {MakerComponent} from "../todo/maker/maker.component";
 import {ImportantComponent} from "../todo/important/important.component";
 import {OneTaskComponent} from "../todo/one-task/one-task.component";
+import {TodayComponent} from "../todo/today/today.component";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import {OneTaskComponent} from "../todo/one-task/one-task.component";
         HttpClientModule,
         ReactiveFormsModule
     ],
-    declarations: [Tab1Page,TodoComponent, MakerComponent, ImportantComponent, OneTaskComponent],
+    declarations: [Tab1Page,TodoComponent, MakerComponent, ImportantComponent, OneTaskComponent, TodayComponent],
 })
 export class Tab1PageModule {
 }

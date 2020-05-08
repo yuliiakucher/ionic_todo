@@ -4,6 +4,8 @@ import { Tab1Page } from './tab1.page';
 import {MakerComponent} from "../todo/maker/maker.component";
 import {ImportantComponent} from "../todo/important/important.component";
 import {OneTaskComponent} from "../todo/one-task/one-task.component";
+import {TodoComponent} from "../todo/todo.component";
+import {TodayComponent} from "../todo/today/today.component";
 
 const routes: Routes = [
   {
@@ -13,17 +15,33 @@ const routes: Routes = [
       {
         path: 'important',
         component:  ImportantComponent
+      },
+      {
+        path: 'allTasks',
+        component: TodoComponent,
+        children:[
+
+        ]
+      },
+      {
+        path: 'today',
+        component: TodayComponent,
+      },
+      {
+        path: 'allTasks/maker',
+        component: MakerComponent
+      },
+      {
+        path: 'allTasks/:id/todo',
+        component: OneTaskComponent
       }
     ]
   },
   {
-    path: 'maker',
-    component: MakerComponent
+    path: '',
+    redirectTo: '/main/allTasks'
   },
-  {
-    path: ':id/todo',
-    component: OneTaskComponent
-  }
+
 ];
 
 @NgModule({

@@ -1,9 +1,33 @@
-<ion-list *ngFor="let data of toDoData">
-  <ion-item>
-    <ion-checkbox slot="start"></ion-checkbox>
-    <ion-label>
-      <p>Task #{{data.id}}</p>
-      <h2>{{data.title}}</h2>
-    </ion-label>
-  </ion-item>
-</ion-list>
+
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Important tasks
+        </ion-title>
+        <ion-icon name="document-text-outline" size="large" slot="start"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<section>
+    <ion-card *ngFor="let i of important">
+        <ion-item>
+            <ion-icon name="pencil-outline" slot="start"></ion-icon>
+            <ion-label>
+                <p>Task #{{i.id}}</p>
+                {{i.title}}
+            </ion-label>
+            <ion-label color='dark'>
+                <p>Due to {{i.date | date: 'shortDate'}}</p>
+                Priority: {{i.type}}
+            </ion-label>
+        </ion-item>
+
+        <ion-card-content>
+            {{i.body}}
+        </ion-card-content>
+    </ion-card>
+    <ion-button slot="center" expand="block" color="success" fill="outline" (click)="back()">Ok</ion-button>
+</section>
+
+
+

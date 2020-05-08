@@ -14,6 +14,7 @@ export class OneTaskComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private _location: Location) {
     this.activatedRoute.params.subscribe(value => {
+
       let arr = JSON.parse(localStorage.getItem('todos'));
       let myArr = arr.values();
       for (let c of myArr) {
@@ -21,7 +22,8 @@ export class OneTaskComponent implements OnInit {
           this.task = c
         }
       }
-    })}
+    })
+  }
 
 
 

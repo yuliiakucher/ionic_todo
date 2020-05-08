@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoModel} from "../TodoModel";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-important',
@@ -8,14 +9,24 @@ import {TodoModel} from "../TodoModel";
 })
 export class ImportantComponent implements OnInit {
 
-  toDoData: TodoModel[] = [];
+  important: TodoModel[] =[];
 
 
-  constructor() {
-
+  constructor(private _location: Location) {
+    let arr = JSON.parse(localStorage.getItem('todos'));
+    let myArr = arr.values();
+    for (let c of myArr) {
+      if (c.type === 'high'){
+        this.important.push(c)
+      }
+    }
   }
-  ngOnInit() {
-    this.toDoData = JSON.parse(localStorage.getItem('todos'))
+
+
+  ngOnInit() {}
+
+  back() {
+    this._location.back()
   }
 
 }

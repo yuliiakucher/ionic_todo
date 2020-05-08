@@ -10,17 +10,28 @@ export class Tab1Page {
 
   pages = [
     {
-      title: 'important',
-      url:'important'
-    }
-  ]
+      title: 'All tasks',
+      url:'/allTasks',
+      icon: "albums-outline"
+    },
+    {
+      title: 'Today',
+      url:'/today',
+      icon: "today-outline"
 
-  selectedPath = '';
+    },
+    {
+      title: 'Important',
+      url:'/important',
+      icon: "alert-outline"
+    },
+  ];
 
-  constructor(private router: Router) {
-    this.router.events.subscribe((event: RouterEvent) => {
-      this.selectedPath = event.url
-    })
+
+
+
+  constructor() {
+
   }
 
 }
