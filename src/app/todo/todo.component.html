@@ -1,5 +1,5 @@
 <br>
-<ion-button routerLink="maker" color="light" shape="round" expand="block">Create new Task</ion-button>
+<ion-button routerLink="maker" color="success" shape="round" expand="block">Create new Task</ion-button>
 
 <h3>Your tasks:</h3>
 
@@ -14,7 +14,7 @@
                 <p>Task #{{data.id}}</p>
                 <h2>{{data.title}}</h2>
             </ion-label>
-            <ion-button color="medium">Details</ion-button>
+            <ion-button color="success"  fill="outline" (click)="navigate(data)">Details</ion-button>
         </ion-item>
     </ion-list>
 </ion-content>

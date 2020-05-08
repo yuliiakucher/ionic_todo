@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from "../TodoModel";
+import {TodoModel} from "../TodoModel";
 
 @Component({
   selector: 'app-important',
@@ -8,7 +8,7 @@ import {Todo} from "../TodoModel";
 })
 export class ImportantComponent implements OnInit {
 
-  toDoData: Todo[] = [];
+  toDoData: TodoModel[] = [];
 
 
   constructor() {

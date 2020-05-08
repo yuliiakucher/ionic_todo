@@ -1,3 +1,22 @@
-<p>
-  one-task works!
-</p>
+<section>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pencil-outline" slot="start"></ion-icon>
+      <ion-label>
+        <p>Task #{{task.id}}</p>
+        {{task.title}}
+      </ion-label>
+      <ion-label color='dark'>
+        <p>Due to {{task.date | date: 'shortDate'}}</p>
+        Priority: {{task.type}}
+      </ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      {{task.body}}
+    </ion-card-content>
+  </ion-card>
+  <ion-button slot="center" expand="block" color="success" fill="outline" (click)="back()">Ok</ion-button>
+</section>
+
+

@@ -1,6 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Todo} from "../TodoModel";
+import {TodoModel} from "../TodoModel";
 import {Location} from "@angular/common";
 
 @Component({
@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
 export class MakerComponent implements OnInit {
 
   toDo: FormGroup;
-  data: Todo[] = [];
+  data: TodoModel[] = [];
   done: boolean = true
 
 
@@ -19,7 +19,7 @@ export class MakerComponent implements OnInit {
     this.toDo = this.formBuilder.group({
       id: ['', Validators.required],
       title: ['', [Validators.required, Validators.pattern('')]],
-      body: ['', [Validators.required, Validators.pattern('')]],
+      body: [''],
       type: ['', [Validators.required, Validators.pattern('')]],
       date:[''],
       checker: [false],

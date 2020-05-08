@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Todo} from "./TodoModel";
+import {TodoModel} from "./TodoModel";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -15,11 +16,11 @@ export class TodoComponent implements OnInit {
 
 
 
-  toDoData: Todo[] = [];
+  toDoData: TodoModel[] = [];
   $event: any;
 
 
-  constructor() {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
   ngOnInit() {
@@ -40,11 +41,21 @@ export class TodoComponent implements OnInit {
   }
 
   Done(id: number) {
-    let json = localStorage.getItem('todos');
-    const arr  = JSON.parse(json);
-    arr[id-1].checker = !arr[id-1].checker
-    localStorage.setItem('todos', JSON.stringify(arr))
+
+    let arr = JSON.parse(localStorage.getItem('todos'));
+    let myArr = arr.values();
+    for (let c of myArr) {
+      console.log(c)
+    }
+    localStorage.setItem('todos',JSON.stringify(arr))
   }
+
+    navigate(data: TodoModel) {
+      this.router.navigate(
+          [data.id, 'todo'],
+          {relativeTo: this.activatedRoute}
+      )
+    }
 }
 
 

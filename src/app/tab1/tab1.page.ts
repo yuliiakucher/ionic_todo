@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, RouterEvent} from "@angular/router";
 
 @Component({
   selector: 'app-tab1',
@@ -8,9 +8,19 @@ import {Router} from "@angular/router";
 })
 export class Tab1Page {
 
-  constructor(private router: Router) {}
-
-    navigate() {
-      this.router.navigate(['important'])
+  pages = [
+    {
+      title: 'important',
+      url:'important'
     }
+  ]
+
+  selectedPath = '';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: RouterEvent) => {
+      this.selectedPath = event.url
+    })
+  }
+
 }
