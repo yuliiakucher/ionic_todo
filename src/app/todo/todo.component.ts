@@ -53,6 +53,10 @@ export class TodoComponent implements OnInit {
         this.router.navigate(['maker'],{relativeTo: this.activatedRoute});
 
     }
+
+    delete() {
+        localStorage.clear()
+    }
 }
 
 

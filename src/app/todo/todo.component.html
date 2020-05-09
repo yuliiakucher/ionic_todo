@@ -11,7 +11,12 @@
 
 <br>
 <ion-content padding>
-    <ion-button (click)="make()" color="success" shape="round" expand="block">Create new Task</ion-button>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="success" (click)="make()">
+            <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-button (click)="delete()" color="medium" shape="round" size="small">Delete all tasks</ion-button>
     <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content pullingIcon="bubbles"></ion-refresher-content>
     </ion-refresher>
